@@ -89,7 +89,6 @@ function pickLoc(){
         websocket_gui.send("#pick" + JSON.stringify(coords));
 }
 
-
 var canvas = document.getElementById("gui_canvas"),
     context = canvas.getContext('2d');
     image = new Image();
