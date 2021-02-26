@@ -114,7 +114,6 @@ class GUI:
         strArray = re.sub(r"[ ]+",", ",strArray)
         strArray = re.sub(r",[ ]+]","]",strArray)
 
-        print(strArray)
         self.array = strArray
         self.array_lock.release()
    
