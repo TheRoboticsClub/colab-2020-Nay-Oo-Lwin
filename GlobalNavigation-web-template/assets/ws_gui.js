@@ -82,6 +82,12 @@ function declare_gui(websocket_address){
          	
 	}
 }
+//function to send the mouse click data 
+function pickLoc(){
+        var data = destinationPicker(event);
+        coords = {"data" : data};
+        websocket_gui.send("#pick" + JSON.stringify(coords));
+}
 
 
 var canvas = document.getElementById("gui_canvas"),
