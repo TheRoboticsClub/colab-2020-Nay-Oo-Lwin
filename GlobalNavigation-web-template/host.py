@@ -39,7 +39,6 @@ class Template:
         self.server = None
         self.client = None
         self.host = sys.argv[1]
-        self.data = None 
 
         # Initialize the GUI, HAL and Console behind the scenes
         self.console = console.Console()
@@ -63,17 +62,9 @@ class Template:
     # 1. The user always passes sequential and iterative codes
     # 2. Only a single infinite loop
     def parse_code(self, source_code):
-    	
-        #Check for mouse click data on the map
-        if source_code[:5] == "#pick":
-             data = source_code[5:]
-             data = eval(data)
-             self.data = data["data"]
-
-             return "", "", 1
 
         # Check for save/load
-    	elif(source_code[:5] == "#save"):
+    	if(source_code[:5] == "#save"):
                 
     		source_code = source_code[5:]
     		self.save_code(source_code)
@@ -227,7 +218,7 @@ class Template:
         map_module = imp.new_module("MAP")
         map_module.MAP = imp.new_module("MAP")
         map_module.MAP.robotPose = self.gui.update_gui
-        map_module.MAP.destination = self.data
+        map_module.MAP.destination = self.gui.data
        
         # Adding modules to system
         # Protip: The names should be different from
