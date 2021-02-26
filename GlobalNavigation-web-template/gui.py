@@ -33,6 +33,7 @@ class GUI:
 
         self.acknowledge = False
         self.acknowledge_lock = threading.Lock()
+	self.data = None
         
         # Take the console object to set the same websocket and client
         self.console = console
@@ -150,6 +151,11 @@ class GUI:
 		# Message for Console
 		elif(message[:4] == "#con"):
 			self.console.prompt(message)
+			
+		#Check for mouse click data on the map 
+                elif(message[:5] == "#pick"):
+                        data = eval(message[5:])
+                        self.data = data["data"]
     
     # Activate the server
     def run_server(self):
