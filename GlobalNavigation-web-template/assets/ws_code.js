@@ -117,13 +117,6 @@ function resetSim(){
 		submitCode();
 	}
 }
-
-//function to send the mouse click data 
-function pickLoc(){
-        var data = destinationPicker(event);
-        coords = {"data" : data};
-        websocket_code.send("#pick" + JSON.stringify(coords));
-}
         
 // Function for range slider
 function codefrequencyUpdate(vol) {
