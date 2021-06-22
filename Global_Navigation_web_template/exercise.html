@@ -85,23 +85,25 @@ from MAP import MAP
 import numpy as np 
 
 # Enter sequential code!
-#x,y coordinate of destionation on the map
-#pose = MAP.robotPose()  #x,y coordinate of robot on the map
+img = MAP.getMap()  #Map image opencv data
+target = GUI.targetPose  #returns x,y coordinates of chosen destionation in the world
+pose = MAP.robotPose()   #returns x,y coordinates of robot on the map
+ropose = HAL.getPose()   #returns x,y and theta components in the world
 
-ropose = HAL.getPose()
-target = GUI.targetPose
-coor = MAP.gridToWorld(415,85)
-#printing debugging data on the console
-#console.print(pose) 
-#console.print(data)
-console.print(coor)
+coor = MAP.gridToWorld(415,85)   #returns translated x,y coordinates in the world
+coor1 = MAP.worldToGrid(212,315) #returns translated x,y coordinates on the map
+set_grid = MAP.setGridVal(121,155,255) #sets the value val to the indicated position
+get_grid = MAP.getGridVal(121,155) #returns the value in that grid position
 
-img = MAP.getMap() #Map image
 GUI.showGPP(img) #shows Gradient Path Planning field on the web-template(Opencv image)
 #GUI.showPath(arr) #shows ideal path on the map and the parameter should be 2D array
 
-#while True:
+#printing debugging data on the console
+console.print(coor)
+
+while True:
     # Enter iterative code!
+    
     
         </div>
 
@@ -120,7 +122,7 @@ GUI.showGPP(img) #shows Gradient Path Planning field on the web-template(Opencv 
   <div id="visual">
     <!-- Canvas -->
     <canvas id="birds-eye" onclick="pickLoc()" ></canvas>
-    <canvas id="gui_canvas"></canvas>
+    <img id="gui_canvas"></img>
     <!--<iframe src="" id="gzweb"></iframe>
     <h3 id="lap_heading">Lap Time</h3>
     <h4 id="lap_time"></h4>-->

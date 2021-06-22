@@ -1,8 +1,14 @@
 <?xml version="1.0" ?>
 <sdf version="1.5">
   <world name="default">
+    <gui fullscreen=1></gui>
     <scene>
       <grid>false</grid>
+      <sky>
+        <clouds>
+          <speed>12</speed>
+        </clouds>
+      </sky>
     </scene>
     <!-- A global light source -->
     <include>
@@ -11,7 +17,7 @@
       <pose>0 0 1 0 0 0</pose>
     </include>
     <include>
-	    <uri>model://pista_simple</uri>
+	    <uri>model://simple_circuit</uri>
 	    <pose>0 0 0 0 0 0</pose>
     </include>
     <include>
